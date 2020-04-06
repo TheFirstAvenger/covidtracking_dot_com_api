@@ -74,8 +74,7 @@ defmodule CovidtrackingDotComApi.State do
             score: -1,
             death: -1,
             hash: nil,
-            notes: nil,
-            lastModified: nil
+            notes: nil
 
   def get(state) when state in @states do
     Builder.single(__MODULE__, "states", "state=#{state}")
