@@ -10,7 +10,7 @@ defmodule CovidtrackingDotComApi.Utils.Builder do
       |> Jason.decode!()
       |> case do
         [x] -> x
-        x -> x
+        x when is_map(x) -> x
       end
       |> Enum.filter(&existing_key/1)
       |> Enum.map(&atomify_key/1)
@@ -24,9 +24,7 @@ defmodule CovidtrackingDotComApi.Utils.Builder do
       String.to_existing_atom(key)
       true
     rescue
-      _ ->
-        # IO.puts("Missing key: #{key}")
-        false
+      _ -> false
     end
   end
 
