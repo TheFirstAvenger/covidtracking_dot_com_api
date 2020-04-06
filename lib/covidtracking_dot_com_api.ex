@@ -1,0 +1,2 @@
+defmodule CovidtrackingDotComApi do
+end
